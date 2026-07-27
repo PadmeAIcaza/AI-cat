@@ -62,20 +62,12 @@ class AI:
         self.chat_window.attributes("-transparentcolor", TRANSPARENT)
 
         x = self.chat_window.winfo_screenwidth() - WINDOW_WIDTH - 20
-        self.chat_window.geometry(
-            f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}+{max(0, x)}+40"
-        )
+        self.chat_window.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}+{max(0, x)}+40")
 
-        canvas = tk.Canvas(
-            self.chat_window,
-            width=WINDOW_WIDTH,
-            height=WINDOW_HEIGHT,
-            bg=TRANSPARENT,
-            bd=0,
-            highlightthickness=0,
-        )
+        canvas = tk.Canvas(self.chat_window, width=WINDOW_WIDTH, height=WINDOW_HEIGHT, bg=TRANSPARENT, bd=0, highlightthickness=0)
         canvas.pack(fill=tk.BOTH, expand=True)
 
+        ########################################################### chat design ###########################################################
         # Window shadow and main panel.
         rounded_rectangle(
             canvas, 10, 12, 694, 558, 28, fill="#772024", outline=""
@@ -215,15 +207,11 @@ class AI:
             tags=("talk_button",),
         )
         button_enabled = {"value": True}
-
+########################################################### chat design ###########################################################
         def set_button_enabled(enabled):
             button_enabled["value"] = enabled
-            canvas.itemconfigure(
-                button_shape, fill=BUTTON if enabled else "#a95a5d"
-            )
-            canvas.itemconfigure(
-                button_text, fill=WHITE if enabled else "#e6bfc0"
-            )
+            canvas.itemconfigure(button_shape, fill=BUTTON if enabled else "#a95a5d")
+            canvas.itemconfigure(button_text, fill=WHITE if enabled else "#e6bfc0")
 
         def show_response(text):
             response_text.configure(state=tk.NORMAL)
@@ -269,9 +257,7 @@ class AI:
                 return
             chat_text = chat_entry.get().strip()
             if not chat_text or chat_text == PLACEHOLDER:
-                messagebox.showerror(
-                    title="Empty message", message="Please enter a message"
-                )
+                messagebox.showerror(title="Empty message", message="Please enter a message")
                 return
 
             chat_entry.delete(0, tk.END)
@@ -281,37 +267,20 @@ class AI:
             self.cat.state = "talk"
             self.cat.change_animation("talk")
             self.cat.last_interaction = time.time()
-            Thread(
-                target=ask_gemini, args=(chat_text,), daemon=True
-            ).start()
+            Thread(target=ask_gemini, args=(chat_text,), daemon=True).start()
             self.chat_window.after(100, check_for_result)
 
         canvas.tag_bind("talk_button", "<Button-1>", save_button_pressed)
-        canvas.tag_bind(
-            "talk_button",
-            "<Enter>",
-            lambda _event: (
-                canvas.config(cursor="hand2"),
-                canvas.itemconfigure(
-                    button_shape,
-                    fill=BUTTON_HOVER if button_enabled["value"] else "#a95a5d",
-                ),
-            ),
-        )
-        canvas.tag_bind(
-            "talk_button",
-            "<Leave>",
-            lambda _event: (
-                canvas.config(cursor=""),
-                canvas.itemconfigure(
-                    button_shape,
-                    fill=BUTTON if button_enabled["value"] else "#a95a5d",
-                ),
-            ),
-        )
+        canvas.tag_bind("talk_button", "<Enter>",
+            lambda _event: (canvas.config(cursor="hand2"), canvas.itemconfigure(button_shape,fill=BUTTON_HOVER if button_enabled["value"] else "#a95a5d"))
+                        )
+
+        canvas.tag_bind("talk_button", "<Leave>",
+                        lambda _event: (canvas.config(cursor=""), canvas.itemconfigure(button_shape,fill=BUTTON if button_enabled["value"] else "#a95a5d"))
+                        )
         chat_entry.bind("<Return>", save_button_pressed)
 
-        # The borderless window can be moved by dragging its header.
+        # the borderless window can be moved by dragging its header.
         drag = {"x": 0, "y": 0}
 
         def start_drag(event):
