@@ -2,8 +2,6 @@ import os
 from dotenv import load_dotenv
 
 class GeminiAI:
-    """Small stateful wrapper around the Gemini chat API."""
-
     def __init__(self):
         load_dotenv()
         api_key = os.getenv("GEMINI_API_KEY")
