@@ -3,6 +3,8 @@ from tkinter import *
 from pathlib import Path
 from cat import Cat
 from AIchat import AI
+import os
+
 
 born_path = Path('../assets')/'sprites'/'Born.png'
 idle_path = Path('../assets')/'sprites'/'Idle2.png'

@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
-from AIchat import AI
 import time
 
 class Cat:
