@@ -102,7 +102,7 @@ class Cat:
     def check_idle(self):
         current_time = time.time()
         elapsed = current_time - self.last_interaction
-        if elapsed > 5:
+        if elapsed > 70:
             self.state = 'sleep'
             self.change_animation(self.state)
 
