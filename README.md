@@ -6,7 +6,9 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-In_Development-orange)
 
-An interactive AI-powered desktop companion that brings a virtual cat to life.
+An interactive AI-powered desktop companion that brings a virtual cat to life. 
+
+### Note: Some Tkinter features are platform-dependent. On Linux, transparent window backgrounds (-transparentcolor) are not supported, so the cat and chat window backgrounds may appear magenta instead of transparent.
 
 VoidCat is a Python desktop application that combines a fully animated virtual pet with Google's Gemini AI to create a desktop companion capable of natural conversations. Unlike traditional chatbots, VoidCat has its own personality, expressive animations, and conversational memory, making interactions feel more like talking to a living companion than a standard AI assistant.
 
