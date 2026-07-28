@@ -97,7 +97,7 @@ GEMINI_MODEL=gemini-3.6-flash
 ### 4. Run the application
 
 ```bash
-cd VoidCat\src
+cd .\src
 python main.py
 ```
 
