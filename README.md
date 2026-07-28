@@ -74,7 +74,7 @@ VoidCat/
 
 ```bash
 git clone https://github.com/yourusername/VoidCat.git
-cd VoidCat\src
+cd VoidCat
 ```
 
 ### 2. Install dependencies
@@ -97,6 +97,7 @@ GEMINI_MODEL=gemini-3.6-flash
 ### 4. Run the application
 
 ```bash
+cd VoidCat\src
 python main.py
 ```
 
