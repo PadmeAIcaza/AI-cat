@@ -76,7 +76,7 @@ VoidCat/
 
 ```bash
 git clone https://github.com/PadmeAIcaza/AI-cat.git
-cd VoidCat
+cd AI-cat
 ```
 
 ### 2. Install dependencies
