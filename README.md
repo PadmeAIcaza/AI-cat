@@ -4,7 +4,6 @@
 ![Google Gemini](https://img.shields.io/badge/AI-Google_Gemini-4285F4)
 ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
-![Status](https://img.shields.io/badge/Status-In_Development-orange)
 
 An interactive AI-powered desktop companion that brings a virtual cat to life. 
 
